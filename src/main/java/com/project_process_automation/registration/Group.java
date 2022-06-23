@@ -1,7 +1,4 @@
-//trial 4
 package com.project_process_automation.registration;
-
-//test
 
 public class Group {
 	private String leaderName;

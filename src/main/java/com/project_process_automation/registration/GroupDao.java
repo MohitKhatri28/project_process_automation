@@ -17,6 +17,7 @@ public class GroupDao {
 		//Insert into login
 		int count = st.executeUpdate("INSERT INTO login (username, pswd) VALUES ('" + group.getUsername() +"', '"+ group.getPassword() +"');",Statement.RETURN_GENERATED_KEYS);
 		ResultSet rs = st.getGeneratedKeys();
+		//Storing last inserted login_id
 		int log_id=0;
 		if(rs.next()) {
 			log_id = rs.getInt(1);
@@ -25,6 +26,7 @@ public class GroupDao {
 		//Insert into student_group
 		st.executeUpdate("INSERT INTO student_group (login_id, area_pref_1, area_pref_2, area_pref_3, guide_pref_1, guide_pref_2, guide_pref_3, avg_cgpa) VALUES ("+ log_id + ","+group.getArea_pref_1() +", "+ group.getArea_pref_2()+", "+ group.getArea_pref_3()+", "+ group.getGuide_pref_1()+", "+ group.getGuide_pref_2()+", "+ group.getGuide_pref_3()+", "+ group.getAvg_cgpa()+");",Statement.RETURN_GENERATED_KEYS);
 		rs = st.getGeneratedKeys();
+		//Storing last inserted group_id
 		int grp_id =0;
 		if(rs.next()) {
 			grp_id = rs.getInt(1);
